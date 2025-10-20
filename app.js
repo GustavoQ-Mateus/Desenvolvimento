@@ -1,19 +1,19 @@
 const express = require("express");
-const server = express();
+const app = express();
 
-server.get("/", function(req,res){
+app.get("/", function(req,res){
     res.send("<h1>Bem vindo ao meu site!</h1>");
 });
 
-server.get("/itens", function(req,res){
-    res.send("<h1>Capivara Lista!</h1>");
+app.get("/produtos", function(req,res){
+    res.send("<h1>Lista de Produtos!</h1>");
 });
 
-server.get("/consulta/:id", function(req,res){
-    res.send("retorno consulta:" + req.params.id);
+app.get("/consulta/:parametro", function(req,res){
+    res.send("retorno consulta:" + req.params.parametro);
 });
 
-server.get("/cadastro/:nome?", function(req,res){
+app.get("/cadastro/{:nome}", function(req,res){
     var nome = req.params.nome;
     if (nome){
         res.send("<h1>produto " + nome + " criado!</h1>");
@@ -22,7 +22,7 @@ server.get("/cadastro/:nome?", function(req,res){
     }
 });
 
-server.listen(process.env.PORT ?? 3000,function(erro){
+app.listen(process.env.PORT ?? 3000,function(erro){
     if (erro){
         console.log("Erro ao Iniciar.");
     }else{
