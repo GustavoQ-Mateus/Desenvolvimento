@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site!</h1>");
+    res.send("<h1>Bem vindo ao !</h1>");
 });
 
 app.get("/produtos", function(req,res){
@@ -24,7 +24,7 @@ app.get("/cadastro/{:nome}", function(req,res){
 
 app.listen(process.env.PORT ?? 3000,function(erro){
     if (erro){
-        console.log("Erro ao Iniciar.");
+        console.log("Erro Iniciar.");
     }else{
         console.log("Servidor Iniciado.");
     }
